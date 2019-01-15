@@ -1,14 +1,27 @@
-<div class="container">
+<div class="container" *ngIf="!selectedArticle">
   <h1>Articles</h1>
   <hr/>
 
   <!-- DISPLAY ARTICLES HERE -->
-  <div class="media" *ngFor="let article of articles">
+  <div class="media" *ngFor="let article of articles" >
     <img src="/api/v1/files/{{article.imageId}}?size=100" class="align-self-start mr-3" alt="">
     <div class="media-body">
-      <h5 class="mt-0">{{article.title | uppercase }}</h5>
+      <h5 class="mt-0">{{article.title | uppercase }} </h5>
       <p class="small">Written on {{article.created | date: 'short'}}</p>
-      <p>{{article.subtitle}}</p>
+      <p>
+        {{article.subtitle}}
+        <br/>
+        <button type="button" (click)="loadArticle(article.id)" class="btn btn-primary btn-sm">read more</button>
+      </p>
     </div>
   </div>
+</div>
+
+<div class="container" *ngIf="selectedArticle">
+  <button type="button" (click)="goBack()" class="btn btn-primary btn-sm">back to overview</button>
+  <h1>{{ selectedArticle.title }}</h1>
+  <h3>{{ selectedArticle.subtitle }}</h3>
+  
+  <img src="/api/v1/files/{{selectedArticle.imageId}}" class="img-fluid" alt="Responsive image">
+  <div [innerHTML]="selectedArticle.htmlContent"></div>
 </div>

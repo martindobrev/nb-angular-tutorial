@@ -9,9 +9,8 @@ import { ArticleCollection, Article } from '../api/api';
 })
 export class HomeComponent implements OnInit {
 
-  title: string = 'test';
-
   articles: Array<Article>;
+  selectedArticle: Article;
 
   constructor(private httpClient: HttpClient) { }
 
@@ -20,6 +19,16 @@ export class HomeComponent implements OnInit {
       console.log('ARTICLES ARE:', articleCollection);
       this.articles = articleCollection.articles;
     });
+  }
+
+  loadArticle(id: number) {
+    this.httpClient.get(`/api/v1/articles/${id}`).subscribe((article: Article) => {
+      this.selectedArticle = article;
+    });
+  }
+
+  goBack() {
+    this.selectedArticle = null;
   }
 
 }
