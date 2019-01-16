@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ArticleCollection, Article } from '../api/api';
+import { ArticleService } from '../article.service';
 
 @Component({
   selector: 'app-home',
@@ -12,23 +13,19 @@ export class HomeComponent implements OnInit {
   articles: Array<Article>;
   selectedArticle: Article;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private articleService: ArticleService) { }
 
   ngOnInit() {
     this.httpClient.get('api/v1/articles').subscribe((articleCollection: ArticleCollection) => {
-      console.log('ARTICLES ARE:', articleCollection);
       this.articles = articleCollection.articles;
+    });
+
+    this.articleService.selectedArticle$.subscribe((selectedArticle: Article) => {
+      this.selectedArticle = selectedArticle;
     });
   }
 
   loadArticle(id: number) {
-    this.httpClient.get(`/api/v1/articles/${id}`).subscribe((article: Article) => {
-      this.selectedArticle = article;
-    });
+    this.articleService.loadArticleById(id);
   }
-
-  goBack() {
-    this.selectedArticle = null;
-  }
-
 }

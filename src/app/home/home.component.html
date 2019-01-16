@@ -18,10 +18,5 @@
 </div>
 
 <div class="container" *ngIf="selectedArticle">
-  <button type="button" (click)="goBack()" class="btn btn-primary btn-sm">back to overview</button>
-  <h1>{{ selectedArticle.title }}</h1>
-  <h3>{{ selectedArticle.subtitle }}</h3>
-  
-  <img src="/api/v1/files/{{selectedArticle.imageId}}" class="img-fluid" alt="Responsive image">
-  <div [innerHTML]="selectedArticle.htmlContent"></div>
+  <app-article-view></app-article-view>
 </div>
