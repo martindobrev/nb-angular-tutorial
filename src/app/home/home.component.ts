@@ -16,16 +16,10 @@ export class HomeComponent implements OnInit {
   constructor(private httpClient: HttpClient, private articleService: ArticleService) { }
 
   ngOnInit() {
-    this.httpClient.get('api/v1/articles').subscribe((articleCollection: ArticleCollection) => {
-      this.articles = articleCollection.articles;
-    });
-
     this.articleService.selectedArticle$.subscribe((selectedArticle: Article) => {
       this.selectedArticle = selectedArticle;
     });
   }
 
-  loadArticle(id: number) {
-    this.articleService.loadArticleById(id);
-  }
+  
 }

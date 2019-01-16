@@ -1,0 +1,13 @@
+<!-- DISPLAY ARTICLES HERE -->
+<div class="media" *ngFor="let article of articles" >
+  <img src="/api/v1/files/{{article.imageId}}?size=100" class="align-self-start mr-3" alt="">
+  <div class="media-body">
+    <h5 class="mt-0">{{article.title | uppercase }} </h5>
+    <p class="small">Written on {{article.created | date: 'short'}}</p>
+    <p>
+      {{article.subtitle}}
+      <br/>
+      <button type="button" (click)="loadArticle(article.id)" class="btn btn-primary btn-sm">read more</button>
+    </p>
+  </div>
+</div>
