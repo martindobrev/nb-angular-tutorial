@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { Article } from './api/api';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { Article, ArticleCollection } from './api/api';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -23,5 +23,8 @@ export class ArticleService {
       this.selectArticle(article);
     });
   }
-  
+
+  public loadArticles(): Observable<ArticleCollection> {
+    return this.httpClient.get(`/api/v1/articles`) as Observable<ArticleCollection>;
+  }
 }

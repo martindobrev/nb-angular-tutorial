@@ -5,6 +5,7 @@ export class ArticleCollection {
 export class Article {
     content: string;
     created: Date;
+    featured: boolean;
     htmlContent:  string;
     id: number;
     imageId: number;
