@@ -14,6 +14,7 @@ export class ArticleViewComponent implements OnInit {
   constructor(private articleService: ArticleService) { }
 
   ngOnInit() {
+    console.log('ArticleViewComponent initialized');
     this.articleService.selectedArticle$.subscribe((article: Article) => {
       this.article = article;
     });

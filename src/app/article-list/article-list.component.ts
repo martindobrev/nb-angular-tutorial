@@ -15,6 +15,7 @@ export class ArticleListComponent implements OnInit {
   constructor(private httpClient: HttpClient, private articleService: ArticleService) { }
 
   ngOnInit() {
+    console.log('ArticleListComponent initialized');
     this.httpClient.get('api/v1/articles').subscribe((articleCollection: ArticleCollection) => {
       this.articles = articleCollection.articles;
     });

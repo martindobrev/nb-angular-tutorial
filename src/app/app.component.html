@@ -1,13 +1,24 @@
 <!--The content below is only a placeholder and can be replaced.-->
+
+<div *ngIf="!production" class="dev-mode">
+  <img src="assets/images/dev_mode.png" width="128" height="128"/>
+</div>
+
+
 <div class="container">
 
   <div style="text-align:center; margin-top: 20px;">
       <img width="300" alt="Angular Logo" src="assets/images/noser-logo.png">
   </div>
 
+  <h3>{{title}}</h3>
   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" app-carousel></div>
 </div>
 
 <div class="container">
   <app-home></app-home>
+</div>
+
+<div class="container">
+  <p class="mt-5 mb-3 text-muted text-center">© 2019 {{ companyName  }}</p>
 </div>

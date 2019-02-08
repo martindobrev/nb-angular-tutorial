@@ -29,6 +29,23 @@
             "scripts": []
           },
           "configurations": {
+            "noser": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.noser.ts"
+                }
+              ],
+              "optimization": false,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": false
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -41,10 +58,10 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
+              "aot": false,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true,
+              "buildOptimizer": false,
               "budgets": [
                 {
                   "type": "initial",
@@ -59,11 +76,14 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "nb-angular-tutorial:build",
-            "proxyConfig": "src/proxy.conf.json"
+            "proxyConfig": "src/configurations/proxy.conf.json"
           },
           "configurations": {
             "production": {
               "browserTarget": "nb-angular-tutorial:build:production"
+            },
+            "noser": {
+              "browserTarget": "nb-angular-tutorial:build:noser"
             }
           }
         },

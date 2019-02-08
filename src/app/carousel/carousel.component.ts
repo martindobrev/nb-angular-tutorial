@@ -13,6 +13,7 @@ export class CarouselComponent implements OnInit {
   constructor(private articleService: ArticleService) { }
 
   ngOnInit() {
+    console.log('CarouselComponent initialized');
     this.articleService.loadArticles().subscribe(articleCollection => {
       this.articles = articleCollection.articles.filter(article => article.featured);
     });
