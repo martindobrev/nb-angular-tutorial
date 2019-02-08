@@ -23,5 +23,5 @@ So far the following lectures took place:
 
 3. Building Applications, Environment Configuration, Deployment
  * Slides - [pdf](slides/lecture2.pdf)
- * Video recording (unfortunately not a screencast) - [video_3](https://www.youtube.com/watch?v=yApcdxWlcNg&list=PLqavB222LKn4zqH5fIH6mwkpOyxB75FXh&index=3)
+ * Video recording - [video_3](https://www.youtube.com/watch?v=yApcdxWlcNg&list=PLqavB222LKn4zqH5fIH6mwkpOyxB75FXh&index=3)
  * Content: Typescript compilation with basic configs, additional angular environments, deployment strategies discussion, demonstration with remote nginx 
