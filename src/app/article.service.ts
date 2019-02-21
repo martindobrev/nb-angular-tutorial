@@ -14,14 +14,8 @@ export class ArticleService {
 
   constructor(private httpClient: HttpClient) {}
 
-  public selectArticle(article: Article) {
-    this.selectedArticle.next(article);
-  }
-
-  public loadArticleById(id: number) {
-    this.httpClient.get(`/api/v1/articles/${id}`).subscribe((article: Article) => {
-      this.selectArticle(article);
-    });
+  public loadArticleById(id: number): Observable<Article> {
+    return this.httpClient.get(`/api/v1/articles/${id}`) as Observable<Article>;
   }
 
   public loadArticles(): Observable<ArticleCollection> {

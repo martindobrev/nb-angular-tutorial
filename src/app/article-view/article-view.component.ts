@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Article } from '../api/api';
 import { ArticleService } from '../article.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-article-view',
@@ -11,17 +12,19 @@ export class ArticleViewComponent implements OnInit {
 
   article: Article;
 
-  constructor(private articleService: ArticleService) { }
+  constructor(private articleService: ArticleService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    console.log('ArticleViewComponent initialized');
-    this.articleService.selectedArticle$.subscribe((article: Article) => {
+
+    var articleId = 0;
+    this.activatedRoute.paramMap.subscribe(paramMap => {
+      articleId = parseInt(paramMap.get('id'));
+    });
+
+    this.articleService.loadArticleById(articleId).subscribe(article => {
       this.article = article;
     });
-  }
-
-  deselectArticle() {
-    this.articleService.selectArticle(null);
+  
   }
 
 }

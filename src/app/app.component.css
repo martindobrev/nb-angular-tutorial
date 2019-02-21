@@ -10,3 +10,7 @@
     top: 0px;
     right: 0px;
 }
+
+.nav-link.active {
+    color: #333;
+}

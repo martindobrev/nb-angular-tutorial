@@ -4,19 +4,22 @@
   <img src="assets/images/dev_mode.png" width="128" height="128"/>
 </div>
 
-
 <div class="container">
 
-  <div style="text-align:center; margin-top: 20px;">
-      <img width="300" alt="Angular Logo" src="assets/images/noser-logo.png">
-  </div>
+  <nav class="nav">
+    
+    <a class="nav-link">
+      <img width="150" alt="Angular Logo" src="assets/images/noser-logo.png">
+    </a>
+    <a routerLink="/" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+  </nav>
 
-  <h3>{{title}}</h3>
-  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" app-carousel></div>
+  <div style="text-align:center; margin-top: 20px;">
+  </div>
 </div>
 
 <div class="container">
-  <app-home></app-home>
+  <router-outlet></router-outlet>
 </div>
 
 <div class="container">

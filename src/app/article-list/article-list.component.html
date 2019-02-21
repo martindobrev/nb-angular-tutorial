@@ -1,4 +1,8 @@
 <!-- DISPLAY ARTICLES HERE -->
+
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel" app-carousel></div>
+
+
 <div class="media" *ngFor="let article of articles" >
   <img src="/api/v1/files/{{article.imageId}}?size=100" class="align-self-start mr-3" alt="">
   <div class="media-body">
@@ -7,7 +11,7 @@
     <p>
       {{article.subtitle}}
       <br/>
-      <button type="button" (click)="loadArticle(article.id)" class="btn btn-primary btn-sm">read more</button>
+      <button type="button" routerLink="article/{{article.id}}" class="btn btn-primary btn-sm">read more</button>
     </p>
   </div>
 </div>
