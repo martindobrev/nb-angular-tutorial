@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Article, ArticleCollection } from './api/api';
 import { HttpClient } from '@angular/common/http';
 
@@ -7,10 +7,6 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ArticleService {
-
-
-  private selectedArticle = new BehaviorSubject<Article>(null);
-  selectedArticle$ = this.selectedArticle.asObservable();
 
   constructor(private httpClient: HttpClient) {}
 
