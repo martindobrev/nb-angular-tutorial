@@ -28,4 +28,5 @@ So far the following lectures took place:
 
 4. Routing
  * Slides - [pdf](slides/lecture3.pdf)
- * Lecture is to be held tomorrow (22.02.2019) Materials will be uploaded after
+ * Video recording - [video_4](https://youtu.be/gK2sshXXSZk)
+ * Content: Routing basics, using the core routing services and directives
