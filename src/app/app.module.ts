@@ -9,12 +9,7 @@ import { ArticleViewComponent } from './article-view/article-view.component';
 import { ArticleListComponent } from './article-list/article-list.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-
-const routes: Routes = [
-  { path: '', component: ArticleListComponent },
-  { path: 'article/:id', component: ArticleViewComponent },
-  { path: '**', component: PageNotFoundComponent }
-];
+import { ArticleRoutingModule } from './article-routing.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +22,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    ArticleRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
