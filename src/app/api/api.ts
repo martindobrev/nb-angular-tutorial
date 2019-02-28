@@ -12,3 +12,24 @@ export class Article {
     subtitle: string;
     title: string;
 }
+
+export class Menu {
+    menuEntries: Array<MenuEntry>;
+}
+
+export class MenuEntry {
+    name:	string
+    slug:	string
+}
+
+export class Page {
+    authorId: string;
+    content: string;
+    created: Date;
+    htmlContent: string;
+    id:	number;
+    name: string;
+    order: number;
+    published: boolean;
+    slug: string;
+}

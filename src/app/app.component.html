@@ -11,6 +11,8 @@
       <img width="150" alt="Angular Logo" src="assets/images/noser-logo.png">
     </a>
     <a routerLink="/" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+
+    <a routerLink="/{{m.slug}}" *ngFor="let m of menuEntries" class="nav-link" routerLinkActive="active">{{m.name}}</a>
   </nav>
 
   <div style="text-align:center; margin-top: 20px;">

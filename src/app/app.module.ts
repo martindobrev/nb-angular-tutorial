@@ -10,6 +10,9 @@ import { ArticleListComponent } from './article-list/article-list.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ArticleRoutingModule } from './article-routing.module';
+import { PageService } from './page.service';
+import { ArticleService } from './article.service';
+import { PageComponent } from './page/page.component';
 
 @NgModule({
   declarations: [
@@ -17,14 +20,15 @@ import { ArticleRoutingModule } from './article-routing.module';
     ArticleViewComponent,
     ArticleListComponent,
     CarouselComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    PageComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     ArticleRoutingModule
   ],
-  providers: [],
+  providers: [PageService, ArticleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

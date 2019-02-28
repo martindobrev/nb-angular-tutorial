@@ -3,6 +3,8 @@ import { environment } from './../environments/environment';
 import { Router, RouterEvent, Event, ActivationStart, ActivationEnd, NavigationEnd } from '@angular/router';
 import { routerNgProbeToken } from '@angular/router/src/router_module';
 import { readElementValue } from '@angular/core/src/render3/util';
+import { PageService } from './page.service';
+import { Menu, MenuEntry } from './api/api';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +18,10 @@ export class AppComponent implements OnInit {
 
   production = environment.production;
 
-  constructor(private router: Router) {
+  menu: Menu;
+  menuEntries: Array<MenuEntry> = [];
+
+  constructor(private router: Router, private pageService: PageService) {
     
   }
 
@@ -27,5 +32,13 @@ export class AppComponent implements OnInit {
         console.log(event.toString());
       }
     });
+
+    this.pageService.getMenu().subscribe(menu => {
+      if (menu) {
+        if (menu.menuEntries) {
+          this.menuEntries = menu.menuEntries;
+        }
+      }
+    })
   }
 }
