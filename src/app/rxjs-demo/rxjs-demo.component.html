@@ -1,0 +1,91 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md">
+      <h3>Streams</h3>
+      
+      <div class="form-group">
+        <label for="stream1">Stream 1</label>
+        <input type="text" class="form-control" aria-describedby="stream1Help" id="stream1"
+          placeholder="Enter value here" [(ngModel)]="userInput.stream1" (keyup.enter)="sendValue1(userInput.stream1)" >
+        <small id="stream1Help" class="form-text text-muted">simple string values, no error will be produced</small>
+
+        <button type="button" (click)="completeStream1()">complete</button>
+      </div>
+
+      <div class="form-group">
+        <label for="stream2">Stream 2</label>
+        <input type="text" class="form-control" aria-describedby="stream2Help"
+          placeholder="Enter digits here" [(ngModel)]="userInput.stream2" (keyup.enter)="sendValue2(userInput.stream2)">
+        <small id="stream2Help" class="form-text text-muted">integer values, error if invalid characters
+          entered</small>
+        <small *ngIf="stream2.hasError" class="text-danger">ERROR OCCURED!!! Completion not possible!</small>
+      </div>
+      <button type="button" (click)="completeStream2()">complete</button>
+    </div>
+
+    <div class="col-md">
+      <h3>Subscribers</h3>
+      <h4>Basic Stream 1 subscriber</h4>
+      <div>
+        Values: <span>{{ stream1values | json }}</span>
+      </div>
+
+      <h4>Stream 1 last value</h4>
+      <div>
+        <span>{{ stream1LastValue }}</span>
+      </div>
+
+      <h4>Basic stream 2 numbers</h4>
+      <div>
+        Values: <span>{{ stream2values | json }}</span>
+      </div>
+      
+      <h4>Stream 2 min value</h4>
+      <div>
+        Min value is: {{stream2MinValue}}
+      </div>
+
+    </div>
+    <div class="col-md">
+      <h3>Observables and HttpClient</h3>
+      <h4>
+        Load article example
+      </h4>
+
+      <div class="form-group">
+        <input type="text" class="form-control" aria-describedby="articleHelp"
+          placeholder="Enter id here" [(ngModel)]="userInput.article" (keyup.enter)="loadArticle()">
+        <small id="articleHelp" class="form-text text-muted">integer values, error if invalid characters
+          entered</small>
+      </div>
+
+      <h4>Article title: {{ article?.title }}</h4>
+      
+    </div>
+  </div>
+
+  <!-- SUBJECTS -->
+
+  <div class="row subject-row">
+    <h4 class="text-info">Subjects</h4>
+    <button class="subscribe-subjects-button" (click)="bindToSubjects()">subscribe all to stream 1</button>     
+  </div>
+
+  <div class="row subject-row">
+    <div class="col-md">
+      <h4>Async Subject</h4>
+      <p>{{ asyncSubjectValues | json }}</p>
+      <button (click)="asyncSubject.complete()">complete asyncSubject</button>
+    </div>
+
+    <div class="col-md">
+      <h4>Behaviour Subject</h4>
+      <p>{{ behaviourSubjectValues | json }}</p>
+    </div>
+
+    <div class="col-md">
+        <h4>ReplaySubject</h4>
+        <p>{{ replaySubjectValues | json }}</p>
+      </div>
+  </div>
+</div>
