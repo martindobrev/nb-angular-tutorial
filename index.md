@@ -30,3 +30,9 @@ So far the following lectures took place:
  * Slides - [pdf](slides/lecture3.pdf)
  * Video recording - [video_4](https://youtu.be/gK2sshXXSZk)
  * Content: Routing basics, using the core routing services and directives
+
+
+5. RxJS Basics
+ * Slides - [pdf](slides/lecture4.pdf)
+ * Video recording - [video_4](https://youtu.be/bplkYoauuMU)
+ * Content: RxJS basics, Observables creation, usage, subjects and chaining 
