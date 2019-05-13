@@ -10,7 +10,7 @@ The tutorial is accompanied by the linked github repository (checkout the link i
 
 **!!!The production server from the tutorials is not working anymore. The backend is available as a docker container [here](https://cloud.docker.com/repository/docker/maddob/blog-backend)!!! The Tag 0.3.6 has additional security disabled so you will be able to access all discussed features in the tutorial. To run the container execute:**
 ```
-docker run -p 8080:8000 maddob/blog-backend:0.3.6
+docker run -p 8000:8000 maddob/blog-backend:0.3.6
 ```
 
 **SpringBoot REST API is started in the container on port 8000. Currently you cannot change that. So you have to map it to some of your local ports to access it. The command above will make the REST API accessible from localhost:8000. Swagger UI will then be available on http://localhost:8000/swagger-ui.html. You are of course free to change the mapping :)**  
