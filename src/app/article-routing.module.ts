@@ -12,7 +12,9 @@ const routes: Routes = [
   { path: 'page-not-found', component: PageNotFoundComponent },
   { path: 'rxjs-demo', component: RxjsDemoComponent},
   { path: 'article/:id', component: ArticleViewComponent },
+  { path: 'admin', loadChildren: './admin/admin.module#AdminModule'}, // LAZY LOADING Angular 7
   { path: ':slug', component: PageComponent },
+  
   { path: '**', component: PageNotFoundComponent },
   
 ];
