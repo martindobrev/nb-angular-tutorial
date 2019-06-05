@@ -1,0 +1,11 @@
+export * from './articleController.service';
+import { ArticleControllerService } from './articleController.service';
+export * from './fileController.service';
+import { FileControllerService } from './fileController.service';
+export * from './htmlSnippetController.service';
+import { HtmlSnippetControllerService } from './htmlSnippetController.service';
+export * from './pageController.service';
+import { PageControllerService } from './pageController.service';
+export * from './userInfoController.service';
+import { UserInfoControllerService } from './userInfoController.service';
+export const APIS = [ArticleControllerService, FileControllerService, HtmlSnippetControllerService, PageControllerService, UserInfoControllerService];

@@ -15,6 +15,7 @@ import { PageService } from './page.service';
 import { ArticleService } from './article.service';
 import { PageComponent } from './page/page.component';
 import { RxjsDemoComponent } from './rxjs-demo/rxjs-demo.component';
+import { ApiModule, BASE_PATH } from './typescript-angular-client';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { RxjsDemoComponent } from './rxjs-demo/rxjs-demo.component';
     FormsModule,
     ArticleRoutingModule
   ],
-  providers: [PageService, ArticleService],
+  providers: [PageService, ArticleService, {provide: BASE_PATH, useValue: ''}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PageControllerService, PageDTO } from 'src/app/typescript-angular-client';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  pages: Array<PageDTO>;
+
+  constructor(private pageControllerService: PageControllerService) { }
 
   ngOnInit() {
+
+
+    this.pageControllerService.getPagesUsingGET().subscribe(pageCollectionDTO => {
+      this.pages = pageCollectionDTO.pages;
+    });
   }
 
 }
