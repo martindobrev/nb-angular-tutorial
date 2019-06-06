@@ -1,0 +1,32 @@
+<form [formGroup]="pageForm" (ngSubmit)="onEdit()">
+  <h3>Edit Page</h3>
+  <div class="form-group">
+    <label for="id">Id</label>
+    <input type="email" disabled class="form-control" id="id"
+    placeholder="Id" formControlName="id">
+  </div>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" placeholder="Page name" formControlName="name">
+  </div>
+  <div class="form-group">
+    <label for="slug">Slug</label>
+    <input type="text" class="form-control" id="slug" placeholder="Slug" formControlName="slug">
+  </div>
+  <div class="form-group" >
+      <label for="content">Content (markdown)</label>
+      <textarea class="form-control" id="content" placeholder="Page content here" formControlName="content"></textarea>
+      
+      <div class="text-danger" *ngIf="content.invalid">
+          Please provide some content
+      </div>
+  </div>
+
+  {{ content.invalid }}
+  
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="published" formControlName="published">
+    <label class="form-check-label" for="published">Piblished</label>
+  </div>
+  <button type="submit" [disabled]="!pageForm.valid" class="btn btn-primary">Edit</button>
+</form>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Article, ArticleCollection } from '../api/api';
-import { ArticleService } from '../article.service';
+import { ArticleService } from '../../shared/article.service';
+import { ArticleDTO, ArticleCollectionDTO } from './../../typescript-angular-client';
 
 @Component({
   selector: 'app-article-list',
@@ -10,13 +10,13 @@ import { ArticleService } from '../article.service';
 })
 export class ArticleListComponent implements OnInit {
 
-  articles: Array<Article> = [];
+  articles: Array<ArticleDTO> = [];
 
   constructor(private httpClient: HttpClient, private articleService: ArticleService) { }
 
   ngOnInit() {
     console.log('ArticleListComponent initialized');
-    this.httpClient.get('api/v1/articles').subscribe((articleCollection: ArticleCollection) => {
+    this.httpClient.get('api/v1/articles').subscribe((articleCollection: ArticleCollectionDTO) => {
       this.articles = articleCollection.articles;
     });
   }

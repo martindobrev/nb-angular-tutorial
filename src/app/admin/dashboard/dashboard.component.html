@@ -1,11 +1,42 @@
-<p>
-  
-  <app-profile-editor></app-profile-editor>
 
-</p>
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Noser Bulgaria ADMIN</a>
+</nav>
 
-<p>PAGES HERE:</p>
+<div class="container-fluid" style="margin-top: 50px;">
+  <div class="row">
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="./">
+              Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="pages" routerActive="active">
+              Pages
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              Articles
+            </a>
+          </li>
+        </ul>
 
-<div *ngFor="let page of pages">
-  <h3>{{page.name}}</h3>
+      </div>
+    </nav>
+    
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <router-outlet></router-outlet>
+    </main>
+  </div>
 </div>
+      
+
+
+
+
+
+

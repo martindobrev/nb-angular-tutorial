@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ArticleService } from '../article.service';
-import { PageService } from '../page.service';
+import { ArticleService } from '../../shared/article.service';
+import { PageService } from '../../shared/page.service';
 import { ActivatedRoute } from '@angular/router';
-import { Page } from '../api/api';
 import { Observable } from 'rxjs';
+import { PageDTO } from './../../typescript-angular-client';
 
 @Component({
   selector: 'app-page',
@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 })
 export class PageComponent implements OnInit {
 
-  asyncPage: Observable<Page>;
+  asyncPage: Observable<PageDTO>;
   constructor(private pageService: PageService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {

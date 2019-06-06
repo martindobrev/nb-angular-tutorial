@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ArticleService } from '../article.service';
-import { ArticleCollection, Article } from '../api/api';
+import { ArticleService } from '../../shared/article.service';
+import { ArticleDTO } from 'src/app/typescript-angular-client';
 
 @Component({
   selector: '[app-carousel]',
@@ -9,7 +9,7 @@ import { ArticleCollection, Article } from '../api/api';
 })
 export class CarouselComponent implements OnInit {
 
-  articles: Array<Article> = [];
+  articles: Array<ArticleDTO> = [];
   constructor(private articleService: ArticleService) { }
 
   ngOnInit() {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Article } from '../api/api';
-import { ArticleService } from '../article.service';
+import { ArticleService } from '../../shared/article.service';
 import { ActivatedRoute } from '@angular/router';
+import { ArticleDTO } from './../../typescript-angular-client';
 
 @Component({
   selector: 'app-article-view',
@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ArticleViewComponent implements OnInit {
 
-  article: Article;
+  article: ArticleDTO;
 
   constructor(private articleService: ArticleService, private activatedRoute: ActivatedRoute) { }
 

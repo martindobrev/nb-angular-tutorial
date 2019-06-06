@@ -1,0 +1,34 @@
+<p *ngIf="!pages">There are no pages</p>
+
+
+
+<div *ngIf="pages">
+
+  <h3>Pages</h3>
+
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Id</th>
+        <th scope="col">name</th>
+        <th scope="col">slug</th>
+        <th scope="col">options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let page of pages">
+        <td>{{ page.order }}</td>
+        <td>{{ page.id }}</td>
+        <td>{{ page.name }}</td>
+        <td>{{ page.slug }}</td>
+        <td>
+          <button class="btn btn-primary" routerLink="./edit/{{page.id}}">edit</button>
+          <button class="btn btn-primary ml-1" routerLink="pages/delete/{{page.id}}">delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>

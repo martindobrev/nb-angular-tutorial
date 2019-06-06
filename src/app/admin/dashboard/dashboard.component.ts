@@ -13,11 +13,8 @@ export class DashboardComponent implements OnInit {
   constructor(private pageControllerService: PageControllerService) { }
 
   ngOnInit() {
-
-
     this.pageControllerService.getPagesUsingGET().subscribe(pageCollectionDTO => {
       this.pages = pageCollectionDTO.pages;
     });
   }
-
 }

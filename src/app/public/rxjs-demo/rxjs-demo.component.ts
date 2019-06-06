@@ -3,8 +3,8 @@ import { of, Observable, Observer, Subject, BehaviorSubject, fromEvent, AsyncSub
 
 import { ajax } from 'rxjs/ajax'
 import { map, filter, min, debounceTime, distinctUntilChanged, switchMap, retry, concat, concatMap } from 'rxjs/operators';
-import { ArticleService } from '../article.service';
-import { Article } from '../api/api';
+import { ArticleService } from '../../shared/article.service';
+import { ArticleDTO } from './../../typescript-angular-client';
 
 @Component({
   selector: 'app-rxjs-demo',
@@ -23,7 +23,7 @@ export class RxjsDemoComponent implements OnInit {
 
   stream2MinValue: number;
   stream1LastValue: string = '';
-  article: Article;
+  article: ArticleDTO;
 
   userInput = {
     stream1: '',

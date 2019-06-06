@@ -10,16 +10,18 @@ import { FormBuilderDemoComponent } from './form-builder-demo/form-builder-demo.
 import { ApiModule } from '../typescript-angular-client';
 import { HttpClientModule } from '@angular/common/http';
 import { BASE_PATH } from '../typescript-angular-client';
+import { PagelistComponent } from './pagelist/pagelist.component';
+import { PageEditComponent } from './page-edit/page-edit.component';
+import { PageresolveService } from './pageresolve.service';
 
 @NgModule({
-  declarations: [DashboardComponent, NameEditorComponent, ProfileEditorComponent, FormBuilderDemoComponent],
+  declarations: [DashboardComponent, NameEditorComponent, ProfileEditorComponent, FormBuilderDemoComponent, PagelistComponent, PageEditComponent],
   imports: [
     CommonModule,
-    HttpClientModule,
-    ApiModule,
     ReactiveFormsModule,
     AdminRoutingModule,
   ], providers: [
+    PageresolveService,
     {provide: BASE_PATH, useValue: ''}
   ]
   

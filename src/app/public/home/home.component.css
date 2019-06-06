@@ -1,0 +1,16 @@
+#carouselExampleControls {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.dev-mode {
+    position: absolute;
+    width:128px;
+    height: 128px;
+    top: 0px;
+    right: 0px;
+}
+
+.nav-link.active {
+    color: #333;
+}
