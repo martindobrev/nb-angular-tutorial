@@ -4,6 +4,7 @@ import { PageDTO, PageControllerService } from 'src/app/typescript-angular-clien
 import { Subscription } from 'rxjs';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
+import { PageNameValidator } from '../utils/page-name.validator';
 
 @Component({
   selector: 'app-page-edit',
@@ -19,12 +20,17 @@ export class PageEditComponent implements OnInit, OnDestroy {
     return this.pageForm.get('content');
   }
 
+  get slug() {
+    return this.pageForm.get('slug');
+  }
+
   edit = true;
 
   subscriptions: Array<Subscription> = [];
   
   constructor(private pageControllerService: PageControllerService, 
     private router: Router,
+    private pageNameValidator: PageNameValidator,
     private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
@@ -32,6 +38,7 @@ export class PageEditComponent implements OnInit, OnDestroy {
       this.activatedRoute.data.subscribe(data => {
         if (data.page) {
           this.page = data.page;
+          this.pageNameValidator.pageId = this.page.id;
         }
       })
     );
@@ -40,7 +47,7 @@ export class PageEditComponent implements OnInit, OnDestroy {
       id: new FormControl(this.page.id, Validators.required),
       order: new FormControl(this.page.order, Validators.required),
       name: new FormControl(this.page.name, Validators.required),
-      slug: new FormControl(this.page.slug, Validators.required),
+      slug: new FormControl(this.page.slug, {asyncValidators: [this.pageNameValidator.validate.bind(this.pageNameValidator)], validators: Validators.required}),
       published: new FormControl(this.page.published),
       content: new FormControl(this.page.content, Validators.required)
     });
@@ -62,12 +69,11 @@ export class PageEditComponent implements OnInit, OnDestroy {
   }
 
   onEdit() {
-    this.subscriptions.push(
+    console.log('SENDING WITH SLUG: ', this.page.slug);
       this.pageControllerService.editPageUsingPUT(this.page.id, this.page).subscribe(data => {
         this.router.navigate(['../..'], {relativeTo: this.activatedRoute});
       }, error => {
         console.log('ERROR');
       })
-    );
   }
 }

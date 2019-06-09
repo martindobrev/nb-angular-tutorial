@@ -12,17 +12,24 @@
   <div class="form-group">
     <label for="slug">Slug</label>
     <input type="text" class="form-control" id="slug" placeholder="Slug" formControlName="slug">
+    
+    <div class="spinner-border" role="status" *ngIf="slug.pending">
+      <span class="sr-only">Loading...</span>
+    </div>
+
+    <div class="text-danger" *ngIf="slug.invalid">
+        Value cannot be empty or is already taken
+    </div>
+    <p>INVALID: {{slug.invalid}}, PENDING: {{slug.pending}}</p>
   </div>
   <div class="form-group" >
       <label for="content">Content (markdown)</label>
       <textarea class="form-control" id="content" placeholder="Page content here" formControlName="content"></textarea>
       
       <div class="text-danger" *ngIf="content.invalid">
-          Please provide some content
+        Please provide some content
       </div>
   </div>
-
-  {{ content.invalid }}
   
   <div class="form-group form-check">
     <input type="checkbox" class="form-check-input" id="published" formControlName="published">

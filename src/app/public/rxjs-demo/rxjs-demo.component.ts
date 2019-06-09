@@ -77,6 +77,7 @@ export class RxjsDemoComponent implements OnInit {
     });
       
     const searchBox = document.getElementById('stream1');
+    
     const typeahead = fromEvent(searchBox, 'input').pipe(
       map((e: KeyboardEvent) => ( e.target as any).value ),
       filter(text => text.length > 2),

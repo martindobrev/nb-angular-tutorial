@@ -13,13 +13,16 @@ import { BASE_PATH } from '../typescript-angular-client';
 import { PagelistComponent } from './pagelist/pagelist.component';
 import { PageEditComponent } from './page-edit/page-edit.component';
 import { PageresolveService } from './pageresolve.service';
+import { PageDeleteComponent } from './page-delete/page-delete.component';
+import { PageNameValidator, PageNameValidatorDirective } from './utils/page-name.validator';
 
 @NgModule({
-  declarations: [DashboardComponent, NameEditorComponent, ProfileEditorComponent, FormBuilderDemoComponent, PagelistComponent, PageEditComponent],
+  declarations: [DashboardComponent, NameEditorComponent, ProfileEditorComponent, FormBuilderDemoComponent, PagelistComponent, PageEditComponent, PageDeleteComponent, PageNameValidatorDirective],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     AdminRoutingModule,
+    
   ], providers: [
     PageresolveService,
     {provide: BASE_PATH, useValue: ''}
