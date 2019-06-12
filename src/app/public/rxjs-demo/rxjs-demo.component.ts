@@ -35,6 +35,20 @@ export class RxjsDemoComponent implements OnInit {
 
   ngOnInit() {
 
+
+    let simpleCounter = of(1, 2, 4,6 );
+
+    simpleCounter.pipe()
+
+    simpleCounter.subscribe(nextValue => {
+      console.log(nextValue);
+    }, error => {
+
+    }, () => {
+      console.log('ON COMPLETE');
+    });
+
+
     const customObservable = Observable.create((observer: Observer<string>) => {
       observer.next('1');
       observer.next('2');

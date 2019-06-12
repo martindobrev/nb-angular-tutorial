@@ -1,7 +1,5 @@
 <p *ngIf="!pages">There are no pages</p>
 
-
-
 <div *ngIf="pages">
 
   <h3>Pages</h3>
@@ -23,12 +21,11 @@
         <td>{{ page.name }}</td>
         <td>{{ page.slug }}</td>
         <td>
-          <button class="btn btn-primary" routerLink="./edit/{{page.id}}">edit</button>
-          <button class="btn btn-primary ml-1" routerLink="./delete/{{page.id}}">delete</button>
+          <button class="btn btn-sm btn-primary" routerLink="./edit/{{page.id}}">edit</button>
+          <button class="btn btn-sm btn-primary ml-1" routerLink="./edit-template-form/{{page.id}}">edit (template-form)</button>
+          <button class="btn btn-sm btn-primary ml-1" routerLink="./delete/{{page.id}}">delete</button>
         </td>
       </tr>
     </tbody>
   </table>
-
-
 </div>

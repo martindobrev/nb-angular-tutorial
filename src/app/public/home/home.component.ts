@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterEvent, Event, ActivationStart, ActivationEnd, NavigationEnd } from '@angular/router';
+import { Router, RouterEvent, NavigationEnd } from '@angular/router';
 
 import { environment } from 'src/environments/environment';
 import { MenuEntryDTO, MenuDTO } from './../../typescript-angular-client';
@@ -19,10 +19,7 @@ export class HomeComponent implements OnInit {
 
   menu: MenuDTO;
   menuEntries: Array<MenuEntryDTO> = [];
-
-  constructor(private router: Router, private pageService: PageService) {
-    
-  }
+  constructor(private router: Router, private pageService: PageService) {}
 
   ngOnInit(): void {
     console.log('AppComponent initialized');
