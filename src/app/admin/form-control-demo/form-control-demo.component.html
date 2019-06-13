@@ -1,0 +1,24 @@
+
+<h3>This is a simple form control demo</h3>
+
+
+<input type="text" [formControl]="demoFormControl"/>
+
+<p>
+  Valid: {{ demoFormControl.valid }}
+</p>
+<p>
+  Invalid: {{ demoFormControl.invalid }}
+</p>
+<p>
+  Errors: {{ demoFormControl.errors | json }}
+</p>
+<p>
+  Pristine: {{ demoFormControl.pristine }}
+</p>
+<p>
+  Touched: {{ demoFormControl.touched }}
+</p>
+<p>
+  Dirty: {{ demoFormControl.dirty }}
+</p>

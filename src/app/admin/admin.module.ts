@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {InputTextModule} from 'primeng/inputtext';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -16,14 +17,17 @@ import { PageresolveService } from './pageresolve.service';
 import { PageDeleteComponent } from './page-delete/page-delete.component';
 import { PageNameValidator, PageNameValidatorDirective } from './utils/page-name.validator';
 import { PageEditTemplateFormComponent } from './page-edit-template-form/page-edit-template-form.component';
+import { PageEditPrimengComponent } from './page-edit-primeng/page-edit-primeng.component';
+import { FormControlDemoComponent } from './form-control-demo/form-control-demo.component';
 
 @NgModule({
-  declarations: [DashboardComponent, NameEditorComponent, ProfileEditorComponent, FormBuilderDemoComponent, PagelistComponent, PageEditComponent, PageDeleteComponent, PageNameValidatorDirective, PageEditTemplateFormComponent],
+  declarations: [DashboardComponent, NameEditorComponent, ProfileEditorComponent, FormBuilderDemoComponent, PagelistComponent, PageEditComponent, PageDeleteComponent, PageNameValidatorDirective, PageEditTemplateFormComponent, PageEditPrimengComponent, FormControlDemoComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
     AdminRoutingModule,
+    InputTextModule
     
   ], providers: [
     PageresolveService,
