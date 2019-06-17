@@ -39,6 +39,8 @@ export class PageEditComponent implements OnInit, OnDestroy {
     private formBuilder: FormBuilder) {}
 
   ngOnInit() {
+   
+
     this.subscriptions.push(
       this.activatedRoute.data.subscribe(data => {
         if (data.page) {
@@ -48,7 +50,7 @@ export class PageEditComponent implements OnInit, OnDestroy {
       })
     );
     
-
+    /*
     this.pageForm = new FormGroup({
       id: new FormControl(this.page.id, Validators.required),
       order: new FormControl(this.page.order, Validators.required),
@@ -60,10 +62,14 @@ export class PageEditComponent implements OnInit, OnDestroy {
         }
       ), 
       published: new FormControl(this.page.published),
-      content: new FormControl(this.page.content, Validators.required)
+      content: new FormControl(this.page.content, Validators.required),
     });
 
-    /*
+    this.content.valueChanges.subscribe(newValue => {
+      this.slug.setValue(this.slug.value + '!');
+    });
+    */
+    
     // FORM BUILDER METHOD
     this.pageForm = this.formBuilder.group({
       id: [this.page.id, Validators.required],
@@ -73,7 +79,7 @@ export class PageEditComponent implements OnInit, OnDestroy {
       published: [this.page.published],
       content: [this.page.content, Validators.required]
     });
-    */
+    
 
     this.subscriptions.push(
       this.pageForm.valueChanges.subscribe(pageData => {

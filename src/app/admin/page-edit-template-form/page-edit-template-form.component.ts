@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PageDTO, PageControllerService } from './../../typescript-angular-client';
 import { PageNameValidator } from '../utils/page-name.validator';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-page-edit-template-form',
@@ -11,6 +12,8 @@ import { PageNameValidator } from '../utils/page-name.validator';
 export class PageEditTemplateFormComponent implements OnInit {
 
   page: PageDTO;
+
+  testVar = new FormControl('', Validators.required);
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router,
     private pageControllerService: PageControllerService,
@@ -23,6 +26,10 @@ export class PageEditTemplateFormComponent implements OnInit {
         this.pageNameValidator.pageId = this.page.id;
       }
     })
+
+    this.testVar.valueChanges.subscribe(value => {
+      console.log('NEW VALUE', value);
+    });
   }
 
   onSubmit() {

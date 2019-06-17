@@ -7,24 +7,18 @@
     <span class="ui-float-label mt-2">
       <input id="float-input" type="text" size="30" pInputText formControlName="name">
       <label for="float-input">name</label>
+      <p-message *ngIf="pageForm.get('name').invalid" severity="error" text="Cannot be empty"></p-message>
     </span>
   </div>
 
-  <div class="text-danger" *ngIf="pageForm.get('name').invalid">
-      Please enter a name
-    </div>
-
   <div class="mt-3">
-    <div class="ui-inputgroup">
-      <span class="ui-float-label mt-2">
-        <input id="float-input" type="text" size="30" pInputText formControlName="slug">
-        <label for="float-input">slug</label>
-      </span>
-    </div>
-
-    <div class="text-danger" *ngIf="pageForm.get('slug').invalid">
-      invalid
-    </div>
+    
+    <span class="ui-float-label mt-2">
+      <input id="float-input" type="text" size="30" pInputText formControlName="slug">
+      <label for="float-input">slug</label>
+      <p-message *ngIf="pageForm.get('slug').invalid" severity="error" text="Empty or already taken"></p-message>
+    </span>
+  
 
     <div *ngIf="pageForm.get('slug').pending">
       checking availability...

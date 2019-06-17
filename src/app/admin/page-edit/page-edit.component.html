@@ -40,5 +40,6 @@
     <input type="checkbox" class="form-check-input" id="published" formControlName="published">
     <label class="form-check-label" for="published">Piblished</label>
   </div>
-  <button type="submit" [disabled]="!pageForm.valid" class="btn btn-primary">Edit</button>
+  <button [ngClass]="{'btn-warning': pageForm.pristine}" onclick="alert('TEST');" type="submit" [disabled]="!pageForm.valid" class="btn btn-primary">Edit</button>
+  
 </form>

@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { PageNameValidator } from '../utils/page-name.validator';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
+import {Message} from 'primeng/components/common/api';
 
 @Component({
   selector: 'app-page-edit-primeng',
